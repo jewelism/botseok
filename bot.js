@@ -4,7 +4,9 @@ const { isSleeping, getCurrentTime } = require('./util');
 const MACRO_FN_MINUTES = 5;
 const MACRO_FN_MS = 1000 * 60 * MACRO_FN_MINUTES;
 const macroFn = () => setInterval(() => {
-  robot.typeString("`");
+  // robot.typeString("`");
+  robot.keyTap("escape");
+  console.log('key tab:', getCurrentTime());
 }, MACRO_FN_MS);
 
 const prevPos = { x: null, y: null };
