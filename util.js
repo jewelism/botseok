@@ -11,10 +11,12 @@ const padding = (num) => String(num).padStart(2, '0');
 
 const getCurrentTime = () => {
   const date = new Date;
+  const month = padding(date.getMonth() + 1);
+  const day = padding(date.getDate());
   const hh = padding(date.getHours());
   const mm = padding(date.getMinutes());
   const ss = padding(date.getSeconds());
-  return `${hh}:${mm}:${ss}`;
+  return `${month}/${day}-${hh}:${mm}:${ss}`;
 }
 
 module.exports = {
