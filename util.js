@@ -1,6 +1,6 @@
 const isSleeping = ({ mouse, prevPos }) => {
   if (prevPos.x === null) {
-    return true;
+    return false;
   }
   if (mouse.x === prevPos.x && mouse.y === prevPos.y) {
     return true;

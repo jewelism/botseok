@@ -1,17 +1,21 @@
 const robot = require("robotjs");
 const { isSleeping, getCurrentTime } = require("./util");
 
+let macroTimer = 0;
+
 const MACRO_FN_MINUTES = 5;
 const MACRO_FN_MS = 1000 * 60 * MACRO_FN_MINUTES;
 const macroFn = () =>
   setInterval(() => {
     // robot.typeString("`");
+    if (!macroTimer) {
+      return;
+    }
     robot.keyTap("escape");
     console.log("key tab:", getCurrentTime());
   }, MACRO_FN_MS);
 
 const prevPos = { x: null, y: null };
-let macroTimer = 0;
 
 const SLEEP_CHECK_SECONDS = 10;
 const SLEEP_CHECK_MS = 1000 * SLEEP_CHECK_SECONDS;
